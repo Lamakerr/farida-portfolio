@@ -1,0 +1,138 @@
+﻿<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Фарида Керимова — портфолио</title>
+  <!-- Исходник portfolio.pdf: те же кейсы из cases.js, вёрстка под альбомный A4. -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500&family=Great+Vibes&display=swap&subset=cyrillic" rel="stylesheet">
+  <style>
+    @page { size: 297mm 210mm; margin: 0; }
+    :root { --bg: #171311; --bg-2: #1e1714; --wine: #7a2935; --rose: #8b5e5e; --pink: #c98a8f; --cream: #e8ded5; --sand: #d7c6b8; --muted: rgba(232, 222, 213, .62); --line: rgba(232, 222, 213, .16); }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--cream); font: 300 10.5pt/1.6 'Montserrat', sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    h1, h2 { font-family: 'Playfair Display', serif; font-weight: 400; line-height: 1.08; }
+    em { font-style: italic; color: var(--pink); }
+    .page { position: relative; width: 297mm; height: 210mm; overflow: hidden; page-break-after: always; break-after: page; background: var(--bg); }
+    .label { font-size: 7.5pt; letter-spacing: .24em; text-transform: uppercase; color: var(--rose); font-weight: 500; }
+    .foot { position: absolute; left: 16mm; right: 16mm; bottom: 9mm; display: flex; justify-content: space-between; font-size: 7pt; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); }
+
+    /* Обложка */
+    .cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 70% 30%; }
+    .cover::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(23, 19, 17, .94) 0%, rgba(23, 19, 17, .7) 35%, rgba(23, 19, 17, .05) 62%, transparent); }
+    .cover__text { position: absolute; z-index: 1; left: 18mm; top: 50%; transform: translateY(-50%); }
+    .cover h1 { font-size: 54pt; text-transform: uppercase; letter-spacing: .02em; margin: 6mm 0 7mm; }
+    .cover p { font-size: 12pt; max-width: 95mm; color: rgba(232, 222, 213, .85); }
+    .cover .foot { z-index: 1; }
+
+    /* Обо мне */
+    .about { display: grid; grid-template-columns: 95mm 1fr; gap: 16mm; padding: 18mm 18mm 20mm; background: radial-gradient(circle at 10% 20%, rgba(122, 41, 53, .3), transparent 50%), var(--bg); }
+    .about img { width: 100%; height: 160mm; object-fit: cover; border-radius: 6mm; }
+    .about h2 { font-size: 26pt; margin: 4mm 0 7mm; }
+    .about p { margin-bottom: 3.5mm; color: rgba(232, 222, 213, .85); }
+    .about .first { font: italic 400 13pt/1.5 'Playfair Display', serif; color: var(--cream); }
+    .about strong { font-weight: 500; color: var(--cream); }
+    .chips { display: flex; flex-wrap: wrap; gap: 2mm; margin-top: 6mm; }
+    .chips span { font-size: 8pt; padding: 1.5mm 4mm; border: 1px solid var(--line); border-radius: 10mm; color: var(--sand); }
+
+    /* Раздел */
+    .divider { display: flex; flex-direction: column; justify-content: center; padding: 0 18mm; background: radial-gradient(ellipse at 100% 100%, rgba(122, 41, 53, .45), transparent 55%), var(--bg); }
+    .divider .num { font: italic 400 20pt 'Playfair Display', serif; color: var(--rose); }
+    .divider h2 { font-size: 60pt; text-transform: uppercase; margin: 2mm 0 5mm; }
+    .divider .tags { font-size: 9pt; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); }
+    .divider ol { list-style: none; margin-top: 14mm; display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm 10mm; max-width: 220mm; }
+    .divider li { font: 400 12pt 'Playfair Display', serif; padding-top: 3mm; border-top: 1px solid var(--line); }
+
+    /* Кейс */
+    .case { display: grid; grid-template-columns: 80mm 1fr; gap: 10mm; padding: 14mm 14mm 18mm 16mm; }
+    .case__text { display: flex; flex-direction: column; }
+    .case h2 { font-size: 24pt; margin: 3mm 0 4mm; }
+    .case .lead { font: italic 400 11pt/1.45 'Playfair Display', serif; color: var(--sand); margin-bottom: 5mm; }
+    .case h4 { font: 500 7pt 'Montserrat', sans-serif; letter-spacing: .2em; text-transform: uppercase; color: var(--pink); margin: 4mm 0 1.5mm; }
+    .case p, .case li { font-size: 9pt; line-height: 1.55; color: rgba(232, 222, 213, .85); }
+    .case ul { padding-left: 4mm; }
+    .shots { display: flex; gap: 3mm; height: 178mm; align-items: center; justify-content: center; }
+    .shots img { min-width: 0; max-height: 100%; max-width: 100%; object-fit: contain; border-radius: 1.5mm; }
+    .shots.v { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; align-items: center; }
+    .shots.v img { width: 100%; max-height: 178mm; }
+    .shots.w { display: grid; grid-template-columns: 1fr 1fr; align-content: center; }
+    .shots.w img { width: 100%; }
+    .shots.t img { height: 100%; width: auto; }
+    .shots.t img:first-child { height: 100%; width: 70mm; object-fit: cover; object-position: top; }
+
+    /* Контакты */
+    .contacts { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: radial-gradient(ellipse at 0% 100%, rgba(122, 41, 53, .55), transparent 55%), radial-gradient(ellipse at 100% 0%, rgba(122, 41, 53, .35), transparent 50%), var(--bg-2); }
+    .contacts .script { font: 400 44pt/1 'Great Vibes', cursive; color: var(--sand); transform: rotate(-6deg); margin-bottom: 14mm; }
+    .contacts p { color: rgba(232, 222, 213, .85); margin-bottom: 9mm; font-size: 11pt; }
+    .contacts a { display: block; color: var(--cream); text-decoration: none; font: 400 17pt 'Playfair Display', serif; margin: 1.5mm 0; }
+  </style>
+</head>
+<body>
+  <section class="page cover">
+    <img src="images/photo-wide.webp" alt="">
+    <div class="cover__text">
+      <p class="label">Portfolio ✦ 2026</p>
+      <h1>Farida<br>Kerimova</h1>
+      <p>Создаю визуальные решения, в&nbsp;которых эстетика работает вместе со&nbsp;смыслом.</p>
+    </div>
+    <div class="foot"><span>Visual / Graphic / Web designer</span><span>t.me/f_aliev1</span></div>
+  </section>
+
+  <section class="page about">
+    <img src="images/photo-portrait.webp" alt="">
+    <div>
+      <p class="label">Обо мне</p>
+      <h2>Думаю не только о&nbsp;том, <em>как</em> это выглядит, но&nbsp;и&nbsp;о&nbsp;том, <em>зачем</em>.</h2>
+      <p class="first">Привет! Я Фарида, визуальный и веб-дизайнер. Для меня дизайн — это инструмент: у каждого макета есть задача, и красота должна ей помогать, а не мешать.</p>
+      <p>Мой главный проект — визуал игровой платформы <strong>ELOUP.GG</strong>: я придумала концепцию премиум-подписки <strong>ELOUP PLUS</strong>, сделала презентацию проекта, баннеры и графику для соцсетей. Это живой продукт с реальной аудиторией, и мои решения каждый день работают на сайте.</p>
+      <p>Беру задачу целиком: продумаю идею, соберу макет и подготовлю файлы к публикации или печати. Сайты не только рисую, но и собираю на Tilda, так что программист не понадобится.</p>
+      <div class="chips"><span>Соцсети и сторис</span><span>Карточки товаров</span><span>Баннеры и афиши</span><span>Фирменный стиль</span><span>Презентации</span><span>Сайты на Tilda</span><span>Полиграфия и меню</span><span>Вывески и мокапы</span></div>
+    </div>
+  </section>
+
+  <div id="cases"></div>
+
+  <section class="page contacts">
+    <p class="script">Больше чем просто дизайн</p>
+    <p>Спасибо, что посмотрели моё портфолио. Буду рада обсудить ваш проект.</p>
+    <a href="https://t.me/f_aliev1">Telegram — @f_aliev1</a>
+    <a href="mailto:faridagasymova5@gmail.com">faridagasymova5@gmail.com</a>
+  </section>
+
+  <script src="cases.js"></script>
+  <script>
+    const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+    const pad = (n) => String(n).padStart(2, '0');
+    let page = 2;
+    document.getElementById('cases').innerHTML = GROUPS.map((g, gi) => {
+      page++;
+      const divider = `
+        <section class="page divider">
+          <p class="num">${pad(gi + 1)} /</p>
+          <h2>${esc(g.title)}</h2>
+          <p class="tags">${g.tags.map(esc).join(' / ')}</p>
+          <ol>${g.cases.map((c) => `<li>${esc(c.title)}</li>`).join('')}</ol>
+        </section>`;
+      return divider + g.cases.map((c) => {
+        page++;
+        // сколько макетов влезает на лист: вертикальные — 3 в ряд, горизонтальные — 4 сеткой, лендинги — 3
+        const kind = c.wide ? 'w' : c.tall ? 't' : 'v';
+        const picks = c.pdf || Array.from({ length: Math.min(c.shots, c.wide ? 4 : 3) }, (_, i) => i + 1);
+        const shots = picks.map((i) => `<img src="images/${c.id}/${pad(i)}.webp" alt="">`).join('');
+        return `
+        <section class="page case">
+          <div class="case__text">
+            <p class="label">${esc(g.title)} · ${esc(c.kind)}</p>
+            <h2>${esc(c.title)}</h2>
+            <p class="lead">${esc(c.lead)}</p>
+            <h4>Задача</h4><p>${esc(c.task)}</p>
+            <h4>Что сделала</h4><ul>${c.work.map((w) => `<li>${esc(w)}</li>`).join('')}</ul>
+            <h4>Результат</h4><p>${esc(c.result)}</p>
+          </div>
+          <div class="shots ${kind}">${shots}</div>
+          <div class="foot"><span>Farida Kerimova</span><span>${pad(page)}</span></div>
+        </section>`;
+      }).join('');
+    }).join('');
+  </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+﻿<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Фарида Керимова — дизайнер</title>
+  <meta name="description" content="Фарида Керимова — визуальный, графический и веб-дизайнер: соцсети, карточки товаров, фирменный стиль, презентации и сайты на Tilda.">
+  <meta property="og:title" content="Фарида Керимова — дизайнер">
+  <meta property="og:description" content="Создаю визуальные решения, в которых эстетика работает вместе со смыслом.">
+  <meta property="og:image" content="images/photo-wide.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&display=swap&subset=cyrillic" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="bar">
+    <a href="#top" class="bar__logo">Portfolio <span>✦</span></a>
+    <nav class="bar__nav">
+      <a href="#about">Обо мне</a>
+      <a href="#works">Работы</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <picture>
+        <source media="(max-width: 960px)" srcset="images/photo-portrait.webp">
+        <img class="hero__bg" src="images/photo-wide.webp" alt="Фарида Керимова за работой" fetchpriority="high">
+      </picture>
+      <aside class="hero__rail">
+        <p class="hero__mark">Portfolio <span>✦</span></p>
+        <nav class="hero__nav">
+          <a href="#top" class="is-active">Главная</a>
+          <a href="#about">Обо мне</a>
+          <a href="#works">Работы</a>
+          <a href="#contact">Контакты</a>
+        </nav>
+        <p class="hero__role">Visual / Graphic / Web<br>designer</p>
+      </aside>
+      <div class="hero__text">
+        <h1>Farida<br>Kerimova</h1>
+        <p class="hero__lead">Создаю визуальные решения, в&nbsp;которых эстетика работает вместе со&nbsp;смыслом.</p>
+        <a href="#works" class="arrow-link"><i>→</i>Смотреть работы</a>
+      </div>
+      <a href="#about" class="hero__scroll">Scroll<br>down</a>
+    </section>
+
+    <section class="about" id="about">
+      <div class="about__photo">
+        <img src="images/photo-portrait.webp" alt="Фарида Керимова" loading="lazy">
+      </div>
+      <div class="about__text">
+        <p class="eyebrow">Обо мне</p>
+        <h2>Думаю не только о&nbsp;том, <em>как</em> это выглядит, но&nbsp;и&nbsp;о&nbsp;том, <em>зачем</em>.</h2>
+        <p class="about__first">Привет! Я Фарида, визуальный и веб-дизайнер. Для меня дизайн — это инструмент: у каждого макета есть задача, и красота должна ей помогать, а не мешать.</p>
+        <p>Мой главный проект — визуал игровой платформы <strong>ELOUP.GG</strong>: я придумала концепцию премиум-подписки <strong>ELOUP PLUS</strong>, сделала презентацию проекта, баннеры и графику для соцсетей. Это живой продукт с реальной аудиторией, и мои решения каждый день работают на сайте.</p>
+        <p>Беру задачу целиком: продумаю идею, соберу макет и подготовлю файлы к публикации или печати. Сайты не только рисую, но и собираю на Tilda, так что программист не понадобится.</p>
+        <ul class="about__skills">
+          <li>Соцсети и сторис</li>
+          <li>Карточки товаров</li>
+          <li>Баннеры и афиши</li>
+          <li>Фирменный стиль</li>
+          <li>Презентации</li>
+          <li>Сайты на Tilda</li>
+          <li>Полиграфия и меню</li>
+          <li>Вывески и мокапы</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="works" id="works">
+      <div class="works__head">
+        <h2>Selected work</h2>
+        <p class="works__note">Проекты, которые<br>я люблю <span></span></p>
+      </div>
+      <div class="works__groups" id="groups"></div>
+    </section>
+  </main>
+
+  <footer class="contact" id="contact">
+    <p class="contact__script">Больше чем<br>просто дизайн</p>
+    <div class="contact__main">
+      <p>Спасибо, что заглянули в&nbsp;моё портфолио. Буду рада обсудить ваш проект.</p>
+      <a href="https://t.me/f_aliev1" class="arrow-link" target="_blank" rel="noopener"><i>→</i>Написать мне</a>
+    </div>
+    <nav class="contact__links">
+      <a href="https://t.me/f_aliev1" target="_blank" rel="noopener">Telegram</a>
+      <a href="mailto:faridagasymova5@gmail.com">faridagasymova5@gmail.com</a>
+      <a href="portfolio.pdf" download>Портфолио в PDF</a>
+    </nav>
+    <p class="contact__copy">© 2026 Фарида Керимова</p>
+  </footer>
+
+  <dialog class="case" id="case">
+    <button class="case__close" aria-label="Закрыть" data-close>×</button>
+    <div id="caseBody"></div>
+  </dialog>
+
+  <script src="cases.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
